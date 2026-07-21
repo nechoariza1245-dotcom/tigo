@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Recargas | Todos los Operadores</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Efectos hover personalizados con los colores de marca de los operadores */
+        .hover-tigo:hover { border-color: #00377d; background-color: #f0f4f8; }
+        .hover-claro:hover { border-color: #da291c; background-color: #fdf2f2; }
+        .hover-movistar:hover { border-color: #019df4; background-color: #f0f9ff; }
+        .hover-wom:hover { border-color: #e8114b; background-color: #fdf2f5; }
+        .hover-virgin:hover { border-color: #e20020; background-color: #fdf2f2; }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800 antialiased selection:bg-blue-600 selection:text-white">
 
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <!-- Ícono de logo genérico -->
+                <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                <span class="text-xl font-bold text-gray-900">Recargas<span class="text-blue-600">Pro</span></span>
+            </div>
+            <nav class="hidden md:flex gap-6 text-sm font-medium text-gray-600">
+                <a href="#" class="hover:text-blue-600 transition">Inicio</a>
+                <a href="#" class="hover:text-blue-600 transition">Historial</a>
+                <a href="#" class="hover:text-blue-600 transition">Soporte</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-12 items-center">
+        
+        <!-- Left Column: Formulario -->
+        <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+            <h1 class="text-3xl font-extrabold text-gray-900 mb-2">Recarga en línea</h1>
+            <p class="text-gray-500 mb-8">Rápido, seguro y disponible 24/7 para todos los operadores.</p>
+
+            <form action="#" method="POST" class="space-y-5">
+                
+                <!-- Selección de Operador -->
+                <div>
+                    <label for="operador" class="block text-sm font-medium text-gray-700 mb-1">Operador</label>
+                    <select id="operador" name="operador" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 bg-gray-50 border p-3 outline-none" required>
+                        <option value="" disabled selected>Selecciona una opción...</option>
+                        <option value="tigo">Tigo</option>
+                        <option value="claro">Claro</option>
+                        <option value="movistar">Movistar</option>
+                        <option value="wom">WOM</option>
+                        <option value="virgin">Virgin Mobile</option>
+                    </select>
+                </div>
+
+                <!-- Número de Celular -->
+                <div>
+                    <label for="celular" class="block text-sm font-medium text-gray-700 mb-1">Número de Celular</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">+57</span>
+                        <input type="tel" id="celular" name="celular" placeholder="300 000 0000" pattern="[0-9]{10}" class="w-full pl-12 pr-3 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 bg-gray-50 outline-none" required>
+                    </div>
+                </div>
+
+                <!-- Monto a Recargar -->
+                <div>
+                    <label for="monto" class="block text-sm font-medium text-gray-700 mb-1">Valor a recargar (COP)</label>
+                    <div class="grid grid-cols-3 gap-3 mb-3">
+                        <button type="button" class="py-2 px-4 border border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:border-blue-500 focus:bg-blue-50 focus:border-blue-500 transition">$ 10.000</button>
+                        <button type="button" class="py-2 px-4 border border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:border-blue-500 focus:bg-blue-50 focus:border-blue-500 transition">$ 20.000</button>
+                        <button type="button" class="py-2 px-4 border border-gray-200 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:border-blue-500 focus:bg-blue-50 focus:border-blue-500 transition">$ 50.000</button>
+                    </div>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">$</span>
+                        <input type="number" id="monto_personalizado" name="monto" placeholder="Otro valor" min="1000" class="w-full pl-8 pr-3 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 bg-gray-50 outline-none">
+                    </div>
+                </div>
+
+                <!-- Botón de Envío -->
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition duration-200 ease-in-out transform hover:-translate-y-0.5">
+                    Proceder al pago
+                </button>
+            </form>
+        </div>
+
+        <!-- Right Column: Cuadrícula de Operadores -->
+        <div class="hidden md:block">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Operadores Aliados</h2>
+            <div class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                
+                <!-- Tarjeta Tigo -->
+                <div class="bg-white border-2 border-transparent rounded-xl p-6 flex items-center justify-center shadow-sm cursor-pointer transition-all hover-tigo">
+                    <!-- Reemplaza el src con la ruta real de tu imagen: src="./img/logo-tigo.png" -->
+                    <img src="https://via.placeholder.com/120x60/00377d/ffffff?text=TIGO" alt="Logo Tigo" class="h-auto max-w-full rounded">
+                </div>
+
+                <!-- Tarjeta Claro -->
+                <div class="bg-white border-2 border-transparent rounded-xl p-6 flex items-center justify-center shadow-sm cursor-pointer transition-all hover-claro">
+                    <img src="https://via.placeholder.com/120x60/da291c/ffffff?text=CLARO" alt="Logo Claro" class="h-auto max-w-full rounded">
+                </div>
+
+                <!-- Tarjeta Movistar -->
+                <div class="bg-white border-2 border-transparent rounded-xl p-6 flex items-center justify-center shadow-sm cursor-pointer transition-all hover-movistar">
+                    <img src="https://via.placeholder.com/120x60/019df4/ffffff?text=MOVISTAR" alt="Logo Movistar" class="h-auto max-w-full rounded">
+                </div>
+
+                <!-- Tarjeta WOM -->
+                <div class="bg-white border-2 border-transparent rounded-xl p-6 flex items-center justify-center shadow-sm cursor-pointer transition-all hover-wom">
+                    <img src="https://via.placeholder.com/120x60/e8114b/ffffff?text=WOM" alt="Logo WOM" class="h-auto max-w-full rounded">
+                </div>
+
+                <!-- Tarjeta Virgin Mobile -->
+                <div class="bg-white border-2 border-transparent rounded-xl p-6 flex items-center justify-center shadow-sm cursor-pointer transition-all hover-virgin">
+                    <img src="https://via.placeholder.com/120x60/e20020/ffffff?text=VIRGIN" alt="Logo Virgin" class="h-auto max-w-full rounded">
+                </div>
+
+                 <!-- Tarjeta Genérica / Otro -->
+                 <div class="bg-white border-2 border-transparent rounded-xl p-6 flex items-center justify-center shadow-sm cursor-pointer transition-all hover:border-gray-300">
+                    <span class="font-bold text-gray-400">Ver todos</span>
+                </div>
+
+            </div>
+            
+            <!-- Trust Badges -->
+            <div class="mt-12 text-center">
+                <p class="text-sm font-medium text-gray-500 mb-4">Pagos 100% seguros con</p>
+                <div class="flex justify-center gap-4 opacity-70">
+                    <img src="https://via.placeholder.com/60x30/eaeaea/888888?text=PSE" alt="PSE" class="rounded">
+                    <img src="https://via.placeholder.com/60x30/eaeaea/888888?text=VISA" alt="Visa" class="rounded">
+                    <img src="https://via.placeholder.com/60x30/eaeaea/888888?text=MC" alt="Mastercard" class="rounded">
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 mt-12 bg-white">
+        <div class="max-w-6xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+            <p>&copy; 2026 RecargasPro. Todos los derechos reservados.</p>
+            <div class="flex gap-4 mt-4 md:mt-0">
+                <a href="#" class="hover:text-gray-900">Términos y Condiciones</a>
+                <a href="#" class="hover:text-gray-900">Política de Privacidad</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Pequeño script para que los botones de montos rápidos actualicen el input
+        document.querySelectorAll('button[type="button"]').forEach(button => {
+            button.addEventListener('click', function() {
+                const amountText = this.innerText.replace(/[^0-9]/g, '');
+                const input = document.getElementById('monto_personalizado');
+                input.value = amountText;
+            });
+        });
+    </script>
+</body>
+</html>
